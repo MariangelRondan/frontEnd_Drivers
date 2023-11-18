@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    justify-content: space-around; /* Cambiar space-between a center */
+    align-items: center; /* Para centrar verticalmente los elementos */
+    height: 50px;
+    background-color: #EDF2F4;
+  
+  }
+  
+  .navLink {
+    display: flex;
+    text-decoration: none; /* Para eliminar el subrayado de los enlaces */
+    /* Para agregar un espacio entre los elementos */
+    font-family: 'Montserrat', sans-serif;
+
+  }
+  
+
+
+  .button{
+color: #EDF2F4;
+background-color: #2B2D42;
+align-items: center;
+color: white;
+flex-direction: column;
+justify-content: center;
+border: 1px solid wheat;
+/* padding: 10px; */
+gap: 12px;
+border-radius: 8px;
+cursor: pointer;
+font-family: 'Montserrat', sans-serif;
+font-size: medium;
+  }
+
+  
+
+  .button:hover{
+    background-color: #EDF2F4;
+    color: #2B2D42 ;
+    border: #2B2D42 solid 3px;
+    
+  }
+    
+  
+  .container{
+    width: 100%;
+    height: 70px;
+    
+  }
+
+
+/* Estilos para tablet (768px ancho o más) */
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .navLink{
+    margin-bottom: 10px;
+    margin-top: 6px;
+  }
+}
+
+/* Estilos para celular (480px ancho o más) */
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}

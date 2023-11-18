@@ -1,0 +1,227 @@
+    .create {
+        width: 30%;
+        height: auto;
+        background: #2B2D42;
+        padding: 3%;
+  
+        padding-bottom: 57px;
+        color: #fff;
+        border-radius: 17px;
+        padding-bottom: 50px;
+        font-size: 1.3em;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 30%;
+    margin-top: 30px;  
+    }
+      
+      .create input[type="text"],
+      .create input[type="date"],
+      .create input[type="file"]
+       {
+        opacity: 1;
+        display: block;
+        border: none;
+        outline: none;
+        width: 93%;
+        padding: 13px 18px;
+        margin: 20px 0 20px 0;
+        font-size: 0.8em;
+        border-radius: 100px;
+        background: #212333;
+        color: #fff;
+      }
+      
+      
+      .create input[type=submit],
+      .create input[type=button],
+      button,
+      .h1 {
+        border: 0;
+        outline: 0;
+        width: 100%;
+        padding: 13px;
+        font-family: 'Montserrat', sans-serif;
+font-size: 1em;
+        border-radius: 500px;
+        
+        animation: bounce2 1.6s;
+      }
+      
+      .h1 {
+        padding: 0;
+        position: relative;
+  top: -35px;
+  display: block;
+  /* margin-bottom: -0px; */
+  font-size: 1.3em;
+}
+
+.btn {
+  background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  color: #fff;
+  padding: 16px !important;
+  margin: 20px 0 20px 0;
+  
+}
+
+.btn:hover {
+  background: linear-gradient(144deg, #1e1e1e , 20%,#1e1e1e 50%,#1e1e1e );
+  color: rgb(255, 255, 255);
+  padding: 16px !important;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.create input[type=text] {
+  animation: bounce 1s;
+  /* -webkit-appearance: none; */
+}
+
+
+.ui {
+  font-weight: bolder;
+  background: -webkit-linear-gradient(#B563FF, #535EFC, #0EC8EE);
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: transparent;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(0.25turn, #535EFC, #0EC8EE, #0EC8EE);
+  border-image-slice: 1;
+  display: inline;
+}
+
+
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-250px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce1 {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce2 {
+  0% {
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(-20px);
+    opacity: 0;
+}}
+      
+
+
+.button{
+margin: 50px 50px 0 50px;
+width: 70px;
+}
+
+/* .container{
+  width: 100%;
+  height: 100%;
+  --color: #57534c00;
+  background-color: rgba(245, 245, 245, 0);
+  background-size: 55px 55px;
+  
+}  */
+
+
+/* Estilos para tablet (768px ancho o más) */
+/* @media only screen and (max-width: 1300px) {
+.container {
+  width: 100%;
+  height: 100%;
+  --color: #57534c00;
+  background-color: rgba(245, 245, 245, 0);
+      background-size: 5% 5%;
+justify-content: center;
+    }
+    
+} */
+
+
+@media only screen and (max-width: 1300px) {
+  .create {
+    width: 50%;
+    margin-left: 5%;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .create {
+    width: 60%;
+    margin-left: 0;
+  }
+
+}
+
+/* @media only screen and (max-width: 600px) {
+  .create {
+    width: 50%;
+    padding: 3em;
+  }
+  .create input{
+    width: auto;
+  }
+} */
+@media only screen and (max-width: 1080px) {
+  .container {
+    width: 100%;
+  
+    gap: 2px;
+  }
+  .create {
+    width: 60%;
+    margin-left: 0;
+  }
+  .create input{
+    width: auto;
+  }
+}
+
+
+@media only screen and (max-width: 770px) {
+  .container {
+    width: 100%;
+    height: 100%;
+ 
+  }
+  .create {
+    width: 60%;
+    margin-left: 0;
+  }
+  
+}
+
+/* Estilos para celular (480px ancho o más) */
+@media only screen and (max-width: 480px) {
+  .container{
+    width: 100%;
+    height: 100%;
+
+  }
+  .create {
+    width: 60%;
+    margin-left: 0;
+  }
+ 
+}
+
+.error{
+  color: rgb(165, 15, 15);
+  font-weight:500;
+  background-color: rgb(228, 161, 161);
+  border-radius: 12px;
+  padding-left: 30%;
+  
+}

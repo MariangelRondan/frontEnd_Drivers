@@ -1,0 +1,44 @@
+.button{
+  width: 70px;
+border: #EDF2F4 2px solid;
+cursor: pointer;
+border-radius: 8px;
+margin-top: auto;
+background-color: #2B2D42;
+padding: 10px;
+color:#EDF2F4 ;
+font-family: 'Montserrat', sans-serif;
+font-size: medium;
+}
+
+.button:hover{
+  background-color: #EDF2F4;
+  color: #2B2D42 ;
+  border: #2B2D42 solid 3px;
+  
+}
+
+.inputContainer {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.clearButton {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.5;
+  color: #2B2D42;
+}
+
+.inputBox {
+  padding-right: 40px; /* Adjust the padding to make space for the button */
+}
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5%;
+}

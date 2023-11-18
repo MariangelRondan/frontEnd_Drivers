@@ -1,0 +1,156 @@
+
+
+/* .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; 
+    width: 80%;
+    
+   margin: 0 auto;
+  } */
+  
+ /* Estilos generales para las tarjetas */
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
+  grid-template-rows: repeat(3, auto); 
+  gap: 5%;
+margin-left: 10%;
+margin-right: 10%;
+}
+
+/* Estilos para tablet (768px ancho o más) */
+@media only screen and (max-width: 768px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+  }
+}
+
+/* Estilos para celular (480px ancho o más) */
+@media only screen and (max-width: 480px) {
+  .cardContainer {
+    grid-template-columns: 1fr; /* 1 columna en celular */
+  }
+}
+
+  .pagination{
+    display: flex;
+    justify-content: center;
+  align-items: center;
+    gap: 10px;
+    margin-top: 55px;
+   
+  }
+
+
+  /* BUTTON */
+  .button {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    background-color:#003049;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 10px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 45px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #8D99AE 0%, #014569 100%);
+    z-index: -10;
+    pointer-events: none;
+    font-family: 'Montserrat', sans-serif;
+
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #8D99AE 0%, #014569 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+  }
+
+  .button:hover::after {
+    filter: blur(30px);
+  }
+
+  .button:hover::before {
+    transform: rotate(-180deg);
+  }
+
+  .button:active::before {
+    scale: 0.7;
+  }
+
+ /* input Styles */
+ .inputWrapper {
+    position: relative;
+    width: 35px;
+ margin: 0 10px;
+    display: flex; /* Coloca el cuadro de entrada y la línea en línea */
+    align-items: center; 
+  }
+  
+  .inputBox {
+    font-size: 16px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 16px;
+    border-bottom: 2px solid #003049;
+    border-top: 2px solid #003049;
+
+    color: #2B2D42;
+    width: 100%;
+    background-color: #EDF2F4;
+    transition: border-color 0.3s ease-in-out;
+    margin: 0;
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    
+    background-color: #2B2D42;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .inputBox:focus {
+    border-color: #8D99AE;
+    outline: none;
+    
+  }
+  
+  .inputBox:focus + .underline {
+    transform: scaleX(1);
+  }
+
+
+  .button{
+    width: 70px;
+
+
+  }

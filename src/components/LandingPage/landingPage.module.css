@@ -1,0 +1,27 @@
+/* En tu archivo de hoja de estilo CSS personalizado */
+body {
+  margin: 0;
+  padding: 0;
+}
+/* Estilos previos */
+.landingDiv {
+  background-image: url('453697.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  color: white;
+  text-align: center;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+}
+
