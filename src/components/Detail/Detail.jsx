@@ -1,75 +1,68 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./detail.module.css"
 import defaultImage from './default-image.jpg'
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { getDriverByID } from '../../redux/actions';
 import style from "../Cards/cards.module.css"
-
 
 const Detail = () => {
   const { id } = useParams();
-  const [driver, setDriver] = useState({});
-const [isLoading, setIsLoading] = useState(true)
+  const [driver, setDriver] = useState({}); // Modificación 1
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const driverById = useSelector((state) => state.driverById);
 
   useEffect(() => {
-    const getDriverByID = async (id) => {
-      const endpoint = `http://localhost:3001/drivers/${id}`;
+    const fetchData = async () => {
       try {
-        const response = await axios.get(endpoint);
-        const data = response.data;
-        console.log(data)
-        if (data.name) {
-          setDriver(data);
-          setIsLoading(false)
-        }
+        await dispatch(getDriverByID(id));
+        setIsLoading(false);
       } catch (error) {
         console.log(error.message);
+        setIsLoading(false);
+        // Puedes establecer un estado de error si lo deseas
       }
     };
-    getDriverByID(id);
-  }, [id]);
+
+    fetchData();
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    // Si driverById cambia, actualiza el estado local
+    console.log(driverById);
+    setDriver(driverById);
+  }, [driverById]);
 
   let content;
-  
-  if (isLoading) {
-    content = <div className={styles.honeycomb}>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  } else if (driver.name) {
+
+  if (driver.name !== undefined && driver.name !== "") { // Modificación 3
     content = (
       <div className={styles.imageAndDescription}>
-  <img src={driver.image === "" ? defaultImage : driver.image} />
-  <div className={styles.card}>
-    <h1>{driver.name} {driver.surname || driver.lastname}</h1>
-    <p  className={styles.title}>ID: </p> <p>{driver.id}</p>
-    <p  className={styles.title}>Nationality:</p> <p>{driver.nationality}</p>
-    <p className={styles.title}>Date of birth:</p><p>{driver.dob}</p>
-
-    <p className={styles.title}>Description:</p><p>{driver.description}</p>
-    <p className={styles.title}>Teams:</p> <p> {Array.isArray(driver.teams) ? driver.teams.join(', ') : driver.teams}</p>
-  </div>
-  <Link to={`/home`}>
-    <button className={style.button}>Back</button>
-    </Link>
-</div>
-
+        <img src={driver.image === "" ? defaultImage : driver.image} alt={`Image of ${driver.name}`} />
+        <div className={styles.card}>
+          <h1>{driver.name} {driver.surname || driver.lastname}</h1>
+          <p className={styles.title}>ID: </p> <p>{driver.id}</p>
+          <p className={styles.title}>Nationality:</p> <p>{driver.nationality}</p>
+          <p className={styles.title}>Date of birth:</p><p>{driver.dob}</p>
+          <p className={styles.title}>Description:</p><p>{driver.description}</p>
+          <p className={styles.title}>Teams:</p> <p> {Array.isArray(driver.teams) ? driver.teams.join(', ') : driver.teams}</p>
+        </div>
+        <Link to={`/home`}>
+          <button className={style.button}>Back</button>
+        </Link>
+      </div>
     );
   } else {
-    content = <p>No se encontraron datos para el personaje.</p>;
+    content = <p>No data found for the driver.</p>;
   }
 
-  return <div className={styles.container}>
-    {content}
-    
-    </div>;
-
+  return (
+    <>
+      {content}
+    </>
+  );
 };
 
 export default Detail;

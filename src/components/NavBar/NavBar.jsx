@@ -1,8 +1,7 @@
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import styles from "./navbar.module.css"
-import style from "../generalStyles/general.module.css"
 
 export default function NavBar(props){
 const {onSearch, handlePageChange} = props;

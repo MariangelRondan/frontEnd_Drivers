@@ -16,9 +16,9 @@ const initialState = {
   allDriversCopy: [],
   allTeams: [],
   driversByName: [],
-  driverById: [],
-  myFavorites: [],
+  driverById: {},
 };
+
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_DRIVERS:
@@ -36,7 +36,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_BY_ID:
-      return { ...state, driversById: action.payload };
+      return { ...state, driverById: action.payload };
 
     case ORDER:
       let driversOrdenados;
@@ -61,7 +61,6 @@ const rootReducer = (state = initialState, action) => {
       }
       return {
         ...state,
-
         allDriversCopy: driversOrdenados,
       };
 

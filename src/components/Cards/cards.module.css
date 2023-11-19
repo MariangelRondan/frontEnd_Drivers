@@ -1,16 +1,4 @@
 
-
-/* .cardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px; 
-    width: 80%;
-    
-   margin: 0 auto;
-  } */
-  
- /* Estilos generales para las tarjetas */
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
@@ -20,14 +8,12 @@ margin-left: 10%;
 margin-right: 10%;
 }
 
-/* Estilos para tablet (768px ancho o más) */
 @media only screen and (max-width: 768px) {
   .cardContainer {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
   }
 }
 
-/* Estilos para celular (480px ancho o más) */
 @media only screen and (max-width: 480px) {
   .cardContainer {
     grid-template-columns: 1fr; /* 1 columna en celular */
@@ -76,7 +62,6 @@ margin-right: 10%;
     z-index: -10;
     pointer-events: none;
     font-family: 'Montserrat', sans-serif;
-
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
@@ -107,7 +92,7 @@ margin-right: 10%;
     position: relative;
     width: 35px;
  margin: 0 10px;
-    display: flex; /* Coloca el cuadro de entrada y la línea en línea */
+    display: flex; 
     align-items: center; 
   }
   
@@ -118,7 +103,6 @@ margin-right: 10%;
     border-radius: 16px;
     border-bottom: 2px solid #003049;
     border-top: 2px solid #003049;
-
     color: #2B2D42;
     width: 100%;
     background-color: #EDF2F4;
@@ -140,8 +124,7 @@ margin-right: 10%;
   
   .inputBox:focus {
     border-color: #8D99AE;
-    outline: none;
-    
+    outline: none; 
   }
   
   .inputBox:focus + .underline {
@@ -151,6 +134,4 @@ margin-right: 10%;
 
   .button{
     width: 70px;
-
-
   }

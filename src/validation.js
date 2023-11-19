@@ -11,7 +11,7 @@ function validation(formData) {
     errors.name = "Must enter a valid name!";
   }
 
-  if (new Date(formData.dob) > new Date()) {
+  if (new Date(formData.dob) > new Date() || !formData.dob) {
     errors.dob = "Invalid date of birth!";
   } else {
     const eighteenYearsAgo = new Date();
@@ -29,12 +29,8 @@ function validation(formData) {
     errors.lastname = "Must enter a valid lastname!";
   }
 
-  if (
-    !ExpRegSoloLetras.test(formData.description) ||
-    formData.description.length === 0 ||
-    formData.description.length > 20
-  ) {
-    errors.description = "Must enter a valid nationality!";
+  if (formData.description.length === 0) {
+    errors.description = "Must enter a description!";
   }
 
   return errors;

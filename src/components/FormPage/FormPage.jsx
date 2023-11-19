@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios"
@@ -7,12 +6,16 @@ import styles from "./FormPage.module.css"
 import { Link } from "react-router-dom";
 import style from "../generalStyles/general.module.css"
 import validation from "../../validation";
+import { useDispatch, useSelector } from "react-redux";
+import { getTeams } from "../../redux/actions";
 
 export default function FormPage(){
 const[teams, setTeams] = useState([])
-
+const dispatch = useDispatch();
+const allTeams = useSelector((state) => state.allTeams)
+const [selectedTeams, setSelectedTeams] = useState([]);
+const [showOptions, setShowOptions] = useState(false);
 const [errors, setErrors] = useState({})
-
 const [formData, setFormData] = useState({
     name: '',
     lastname: '',
@@ -23,24 +26,15 @@ const [formData, setFormData] = useState({
    teams: []
 })
 
-
-async function fetchData() {
-  try {
-    const {data} =  await axios("http://localhost:3001/teams")
-  if(data) {
-        setTeams(data)
-  }
-  } catch (error) {
-    console.log(error.message)
-  }
-}
-
 useEffect(()=> {
-  fetchData()
+dispatch(getTeams())
+setTeams(allTeams)
 }, [])
 
-const [selectedTeams, setSelectedTeams] = useState([]);
-const [showOptions, setShowOptions] = useState(false);
+useEffect(()=> {
+setTeams(allTeams)
+}, [allTeams])
+
 
 const handleTeamChange = (event) => {
   const { value } = event.target;
@@ -52,9 +46,7 @@ const handleTeamChange = (event) => {
     setSelectedTeams([...selectedTeams, value]);
   }
 };
-
     const selectedTeamIds = [];
-    // Recorre los equipos disponibles
     teams.forEach((team) => {
       // Si el nombre del equipo está en la lista de equipos seleccionados, agrega su ID
       if (selectedTeams.includes(team.name)) {
@@ -62,19 +54,15 @@ const handleTeamChange = (event) => {
       }
     });
 
-
-
 const handleChange = (e) => {
     const {name, value} = e.target;
     setFormData({...formData, [name]: value})
-   
 }
 
 const handleSubmit = async (e) => {
-  e.preventDefault(); // Evita la acción predeterminada del formulario (enviar)
+  e.preventDefault(); 
   const validationErrors = validation(formData);
   setErrors(validationErrors);
-  // Tu lógica de envío del formulario aquí
   try {
     const response = await fetch('http://localhost:3001/drivers', {
       method: 'POST',
@@ -88,42 +76,39 @@ const handleSubmit = async (e) => {
         nationality: formData.nationality,
         dob: formData.dob,
         image: formData.image,
-        teams: selectedTeamIds // IDs de los equipos seleccionados
+        teams: selectedTeamIds 
       })
-      
-      ,
-      // { ...formData, teams: selectedTeams }
-    });
-    console.log(formData)
+     });
     if (response.ok) {
-    
       const data = await response.json();
-      console.log(data);
-      window.alert("Driver created successfully");
-    // } else {
-    //   const errorData = await response.json();
-    //   console.error('Request error:', errorData);
-    //   window.alert("Error: " + errorData.error);    
+      setFormData({
+        name: '',
+        lastname: '',
+        description: '', 
+        nationality: '',
+        dob: '',
+        image: '',
+    })
+    setSelectedTeams([])
+     window.alert(`Driver ${data.driver.name} ${data.driver.lastname} created successfully`);
+    } else {
+      const errorData = await response.json();
+      console.error('Request error:', errorData);
   }
   } catch (error) {
     console.error('Error:', error.message);
   }
 };
     
-console.log(selectedTeams)
-
 return (
   <div className={styles.container}>
    <Link to={`/home`}>
     <button className={`${style.button} ${styles.button} `} >Back</button>
     </Link>
-  
-  
     <div className={styles.create}>
-    
-    <div className="">
+    <div>
     <form onSubmit={handleSubmit}> 
-<h1 className={styles.h1}>New driver</h1>
+<h1 className={`${styles.h1} ${styles.new}`}>New driver</h1>
 <label >
         * Name:
       </label>
@@ -174,7 +159,6 @@ return (
         onChange={handleChange}
         className={styles.space}
       />  
-           {errors.nationality && <p className={styles.error}>{errors.nationality}</p>}
           <label className={styles.space}>
          * Date of birth:
       </label>
@@ -186,22 +170,14 @@ return (
         onChange={handleChange}
         className={styles.space}
       />
-                 {errors.dob && <p className={styles.error}>{errors.dob}</p>}
+        {errors.dob && <p className={styles.error}>{errors.dob}</p>}
 
       <label className={styles.space}>
-        Image:
+        Image URL:
       </label>
-      {/* <input type="file" 
-          id="image" 
-          name="image" 
-          accept="image/*"
-            value={formData.image}
-        onChange={handleChange}
-        className={styles.space}/> */}
         <input type='text' 
           id="image" 
           name="image" 
-          accept="image/*"
             value={formData.image}
         onChange={handleChange}
         className={styles.space}/>
@@ -227,16 +203,11 @@ return (
    <div>Equipos seleccionados: {selectedTeams.join(", ")}</div>
 
       <input className={`${styles.btn} ${styles.space} `} type="submit" value={'Create'}/>
-
 </form>
-
     </div>
   </div>
   </div>
   
-
-
-
 )
 
 }

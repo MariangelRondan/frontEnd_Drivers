@@ -6,7 +6,6 @@ import style from "../generalStyles/general.module.css"
 
 export default function SearchBar(props){
    const { handlePageChange, onSearch} = props; 
-
 const [name, setName] = useState("");
 
 
@@ -15,14 +14,9 @@ setName(event.target.value)
 handlePageChange(1)
 }
 
-
-
-
   const clearInput = () => {
     setName('');
   };
-
-
 
 return (
     <div className={`${style.inputWrapper} ${styles.inputWrapper}`}>
@@ -44,6 +38,5 @@ return (
       Search
     </button>
   </div>
-
 )
 }

@@ -17,7 +17,6 @@ export const getDrivers = () => {
   const endpoint = "http://localhost:3001/drivers";
   return async (dispatch) => {
     try {
-      //axios.post(url, data) data = el cuerpo de la solicitud POST, lo que deseas enviar al servidor. Devuelve un json {data:{ message: "keke", resultado: {character}}
       const { data } = await axios(endpoint);
       return dispatch({
         type: GET_DRIVERS,
@@ -45,9 +44,9 @@ export const getDriverByName = (name) => {
 };
 
 export const getDriverByID = (id) => {
-  const endpoint = `http://localhost:3001/drivers/${id}`;
   return async (dispatch) => {
     try {
+      const endpoint = `http://localhost:3001/drivers/${id}`;
       const response = await axios.get(endpoint);
       const data = response.data;
       return dispatch({
@@ -78,7 +77,6 @@ export const getTeams = () => {
   const endpoint = "http://localhost:3001/teams";
   return async (dispatch) => {
     try {
-      //axios.post(url, data) data = el cuerpo de la solicitud POST, lo que deseas enviar al servidor. Devuelve un json {data:{ message: "keke", resultado: {character}}
       const { data } = await axios(endpoint);
       return dispatch({
         type: GET_TEAMS,
@@ -100,32 +98,5 @@ export const filterOrigin = (origin) => {
 export const clearFilters = () => {
   return {
     type: CLEAR,
-  };
-};
-
-//FAVORITOS
-export const removeFav = (id) => {
-  const endpoint = "http://localhost:3001/drivers/fav/" + id;
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.delete(endpoint);
-      return dispatch({
-        type: REMOVE_FAV,
-        payload: data,
-      });
-    } catch (error) {}
-  };
-};
-
-export const addFav = (driver) => {
-  const endpoint = "http://localhost:3001/drivers/fav";
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.post(endpoint, driver);
-      return dispatch({
-        type: ADD_FAV,
-        payload: data,
-      });
-    } catch (error) {}
   };
 };

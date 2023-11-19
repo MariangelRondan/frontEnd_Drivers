@@ -1,5 +1,5 @@
 .button{
-  width: 70px;
+  width: 80px;
 border: #EDF2F4 2px solid;
 cursor: pointer;
 border-radius: 8px;
@@ -35,7 +35,7 @@ font-size: medium;
 }
 
 .inputBox {
-  padding-right: 40px; /* Adjust the padding to make space for the button */
+  padding-right: 40px; 
 }
 .inputWrapper {
   display: flex;

@@ -9,10 +9,8 @@ import { useSelector } from "react-redux";
 function Cards({ onClose, currentPage, itemsPerPage, handlePageChange, setCurrentPage }) {
   const indexOfLastDriver = currentPage * itemsPerPage;
   const indexOfFirstDriver = indexOfLastDriver - itemsPerPage;
-  // const currentDrivers = byName.length > 0 ? byName : drivers;
   const allDriversCopy = useSelector((state) => state.allDriversCopy)
   const currentDrivers = allDriversCopy;
-
   const pageDrivers = currentDrivers.slice(indexOfFirstDriver, indexOfLastDriver);
 
   const handlePageInput = (e) => {
@@ -23,35 +21,29 @@ function Cards({ onClose, currentPage, itemsPerPage, handlePageChange, setCurren
       setCurrentPage(newPage);
     }
   };
-
   return (
     <div > 
-   
 <div className={styles.pagination}>
         <button className={styles.button} onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
           Previous
         </button>
-        
         <div className={styles.inputWrapper}>
       <input
         type="number"
         className={styles.inputBox}
       value={currentPage}
         onChange={handlePageInput}
-
       /> 
       <span className={styles.underline}></span>
       </div>
              <button className={`${style.button} ${styles.button} `}
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={indexOfLastDriver >= currentDrivers.length}
-
         >
           Next
         </button>
       </div>
       <div className={styles.cardContainer}> 
-       
        {pageDrivers.map((driver) => (
          <Card
            key={driver.id}
