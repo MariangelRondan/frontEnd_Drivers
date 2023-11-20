@@ -10,25 +10,28 @@ import styles from "./home.module.css"
 const Home = () => {
     const dispatch = useDispatch();
     const allTeams = useSelector((state) => state.allTeams)
-const [isLoading, setIsLoading] = useState(true);
+    const teams = useSelector((state) => state.allTeams);
+    const [isLoading, setIsLoading] = useState(true);
 const [currentPage, setCurrentPage] = useState(1)
 const itemsPerPage = 9;
-const[teams, setTeams] = useState([])
+// const[teams, setTeams] = useState([])
 const [filterName, setFilterName] = useState("")
 const [filterDob, setFilterDob] = useState("")
 const [filterTeam, setFilterTeam] = useState("")
 const [originOption, setOriginOption] = useState("")
 
 
-useEffect(() => {
-  dispatch(getDrivers())
-  dispatch(getTeams())
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      await dispatch(getTeams());
+      setIsLoading(false); // Cambiar el estado a false después de la carga
+    } catch (error) {
+      console.error('Error fetching teams:', error);
+    }
+  };
+  fetchData();
 }, []);
-
-useEffect(() => {
-      setTeams(allTeams)
-      setIsLoading(false)
-      }, [allTeams]);
 
  const handleOrigin = (e) => {
   setCurrentPage(1);
