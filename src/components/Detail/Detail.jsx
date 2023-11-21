@@ -30,7 +30,6 @@ const Detail = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    // Si driverById cambia, actualiza el estado local
     console.log(driverById);
     setDriver(driverById);
   }, [driverById]);
@@ -45,7 +44,9 @@ const Detail = () => {
           <h1>{driver.name} {driver.surname || driver.lastname}</h1>
           <p className={styles.title}>ID: </p> <p>{driver.id}</p>
           <p className={styles.title}>Nationality:</p> <p>{driver.nationality}</p>
-          <p className={styles.title}>Date of birth:</p><p>{driver.dob}</p>
+          {/* <p className={styles.title}>Date of birth:</p><p>{driver.dob}</p> */}
+              <p className={styles.title}>Date of birth:</p><p>{driver.dob.split('T')[0]}</p>
+
           <p className={styles.title}>Description:</p><p>{driver.description}</p>
           <p className={styles.title}>Teams:</p> <p> {Array.isArray(driver.teams) ? driver.teams.join(', ') : driver.teams}</p>
         </div>
