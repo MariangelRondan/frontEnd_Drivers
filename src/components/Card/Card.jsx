@@ -6,7 +6,6 @@ const Card = (props) => {
 const {name,image, lastname, teams, id} = props;
 
 
-
 return (
     <div className={styles.card}>
       <div className={styles.top}>
@@ -23,7 +22,6 @@ return (
      <div className={styles.buttonsContainer}>
       </div>
     </div>
-
 )
 
 }

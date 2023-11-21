@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./searchBar.module.css"
-import style from "../generalStyles/general.module.css"
+
 
 
 export default function SearchBar(props){
@@ -19,10 +19,10 @@ handlePageChange(1)
   };
 
 return (
-    <div className={`${style.inputWrapper} ${styles.inputWrapper}`}>
-    <div  className={`${style.inputContainer} ${styles.inputContainer}`}>
+    <div className={`${styles.inputWrapper} ${styles.inputWrapper}`}>
+    <div  className={`${styles.inputContainer} ${styles.inputContainer}`}>
       <input
-       className={`${style.inputBox} ${styles.inputBox}`} 
+       className={`${styles.inputBox} ${styles.inputBox}`} 
         onChange={handleChange}
         type="text"
         placeholder="Driver's name..."

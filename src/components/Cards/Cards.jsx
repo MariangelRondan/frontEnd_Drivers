@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import Card from "../Card/Card"
 import defaultImage from './default-image.jpg'
 import styles from "./cards.module.css"
-import style from "../generalStyles/general.module.css"
 import { useSelector } from "react-redux";
 
 
@@ -14,7 +12,6 @@ function Cards({ onClose, currentPage, itemsPerPage, handlePageChange, setCurren
   const pageDrivers = currentDrivers.slice(indexOfFirstDriver, indexOfLastDriver);
 
   const handlePageInput = (e) => {
-    // Obtén el nuevo valor del input y conviértelo a un número
     const newPage = parseInt(e.target.value, 10);
     if (!isNaN(newPage)) {
       // Si el valor es un número válido, actualiza el estado
@@ -36,7 +33,7 @@ function Cards({ onClose, currentPage, itemsPerPage, handlePageChange, setCurren
       /> 
       <span className={styles.underline}></span>
       </div>
-             <button className={`${style.button} ${styles.button} `}
+             <button className={styles.button} 
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={indexOfLastDriver >= currentDrivers.length}
         >
@@ -55,10 +52,7 @@ function Cards({ onClose, currentPage, itemsPerPage, handlePageChange, setCurren
            onClose={onClose}
          />
        ))}
-     
      </div>
-
-
     </div>
    
   );

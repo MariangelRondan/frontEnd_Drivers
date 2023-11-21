@@ -10,9 +10,6 @@ import styles from "./home.module.css"
 const Home = () => {
     const dispatch = useDispatch();
     const allTeams = useSelector((state) => state.allTeams)
-    const allDriversCopy = useSelector((state) => state.allDriversCopy)
-
-    const teamsState = useSelector((state) => state.allTeams);
     const [isLoading, setIsLoading] = useState(true);
 const [currentPage, setCurrentPage] = useState(1)
 const itemsPerPage = 9;
@@ -26,17 +23,15 @@ const [originOption, setOriginOption] = useState("")
 useEffect(() => {
   dispatch(getDrivers())
   dispatch(getTeams())
-  console.log(allDriversCopy)
 }, []);
-
-
-
 
 useEffect(() => {
       setTeams(allTeams)
       setIsLoading(false)
       }, [allTeams]);
 
+
+//filtro por origen
  const handleOrigin = (e) => {
   setCurrentPage(1);
 dispatch(filterOrigin(e.target.value))
@@ -53,7 +48,6 @@ const handleOrder = (e) => {
     setFilterDob("")
     setFilterTeam("")
     setFilterName(e.target.value)
-  
   }
   
   if(e.target.value === "A2" || e.target.value === "B2"){
@@ -101,7 +95,7 @@ const handleOrder = (e) => {
       <div></div>
     </div>
     } else{
-      content =  (<div>
+      content =  (<div className={styles.container}>
      
       <NavBar handlePageChange={handlePageChange} onSearch={onSearch} /> 
       <div  className={styles.selectContainer}>
@@ -134,9 +128,11 @@ const handleOrder = (e) => {
 </select>
 <button className={styles.button} onClick={handleClean} >Clean Filters</button>
 
-</div>
+</div >
       <Cards  currentPage={currentPage}
-            itemsPerPage={itemsPerPage}    handlePageChange={handlePageChange}  setCurrentPage={setCurrentPage}/>
+            itemsPerPage={itemsPerPage}   
+             handlePageChange={handlePageChange} 
+              setCurrentPage={setCurrentPage}/>
           </div> )
     }
    

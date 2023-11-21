@@ -1,7 +1,7 @@
 
 .cardContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
+  grid-template-columns: repeat(3, 1fr); 
   grid-template-rows: repeat(3, auto); 
   gap: 5%;
 margin-left: 10%;
@@ -10,13 +10,13 @@ margin-right: 10%;
 
 @media only screen and (max-width: 768px) {
   .cardContainer {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media only screen and (max-width: 480px) {
   .cardContainer {
-    grid-template-columns: 1fr; /* 1 columna en celular */
+    grid-template-columns: 1fr; 
   }
 }
 
@@ -26,7 +26,6 @@ margin-right: 10%;
   align-items: center;
     gap: 10px;
     margin-top: 55px;
-   
   }
 
 
@@ -34,7 +33,7 @@ margin-right: 10%;
   .button {
     position: relative;
     width: 70px;
-    height: 40px;
+    height: 35px;
     background-color:#003049;
     display: flex;
     align-items: center;
@@ -56,9 +55,9 @@ margin-right: 10%;
     top: -1px;
     margin: auto;
     width: 45px;
-    height: 48px;
+    height: 44px;
     border-radius: 10px;
-    background: linear-gradient(-45deg, #8D99AE 0%, #014569 100%);
+    background: linear-gradient(-45deg, #D90429 0%, #003049 100%);
     z-index: -10;
     pointer-events: none;
     font-family: 'Montserrat', sans-serif;
@@ -70,7 +69,7 @@ margin-right: 10%;
     z-index: -1;
     position: absolute;
     inset: 0;
-    background: linear-gradient(-45deg, #8D99AE 0%, #014569 100%);
+    background: linear-gradient(-45deg, #D90429 0%, #EF233C 100%);
     transform: translate3d(0, 0, 0) scale(0.95);
     filter: blur(20px);
   }
@@ -91,14 +90,13 @@ margin-right: 10%;
  .inputWrapper {
     position: relative;
     width: 35px;
- margin: 0 10px;
+    margin: 0 10px;
     display: flex; 
     align-items: center; 
   }
   
   .inputBox {
-    font-size: 16px;
-    padding: 10px 0;
+    padding: 7px;
     border: none;
     border-radius: 16px;
     border-bottom: 2px solid #003049;
@@ -107,23 +105,10 @@ margin-right: 10%;
     width: 100%;
     background-color: #EDF2F4;
     transition: border-color 0.3s ease-in-out;
-    margin: 0;
-  }
-  
-  .underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    
-    background-color: #2B2D42;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
   }
   
   .inputBox:focus {
-    border-color: #8D99AE;
+    border-color: #EF233C;
     outline: none; 
   }
   
@@ -134,4 +119,4 @@ margin-right: 10%;
 
   .button{
     width: 70px;
-  }
+  } 

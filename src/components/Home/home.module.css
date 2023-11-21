@@ -3,41 +3,8 @@
 .container{
     width: 100%;
     height: 100%;
-    --color: 
-    background-color: rgba(219, 36, 36, 0.664);
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-    background-size: 55px 55px;
     
   }
-
-
-/* Estilos para tablet (768px ancho o más) */
-@media only screen and (max-width: 768px) {
-  .cardContainer {
-    width: 100%;
-    height: 100%;
-    --color: #000;
-    background-color: rgba(25, 26, 26, 0.1);
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-        background-size: 5% 5%;
- justify-content: center;
-      }
-}
-
-/* Estilos para celular (480px ancho o más) */
-@media only screen and (max-width: 480px) {
-  .cardContainer {
-    width: 100%;
-    height: 100%;
-    --color: #01456986;
-    background-color: rgba(25, 26, 26, 0.1);
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-        background-size: 5% 5%;
-  }
-}
 
 @-webkit-keyframes honeycomb {
     0%,
@@ -79,6 +46,7 @@
     height: 24px;
     position: relative;
     width: 24px;
+    margin: 40%;
   }
   
   .honeycomb div {
@@ -177,18 +145,18 @@
 margin-top: 8px;
 font-family: 'Montserrat', sans-serif;
 font-weight: 500;
-font-size: 1em;
+font-size: 0.7em;
 margin-bottom: 8px;
     position: relative;
-    height: 40px;
-    background-color:#2B2D42;
+    height: 35px;
+    background-color:#003049;
     display: flex;
     align-items: center;
-    color: white;
+    color: #EDF2F4;
     flex-direction: column;
     justify-content: center;
     border: none;
-    padding: 10px;
+    padding-top: 0.7%;
     gap: 12px;
     border-radius: 8px;
     cursor: pointer;
@@ -205,7 +173,7 @@ margin-bottom: 8px;
  border-radius: 8px;
  padding: 10px;
  height: 40px;
- background-color:#2B2D42;
+ background-color:#003049;
  align-items: center;
  color:#EDF2F4;
  flex-direction: column;
@@ -222,8 +190,8 @@ margin-bottom: 8px;
 
 .button:hover{
   background-color:#EDF2F4;
-  color: #2B2D42;
-  border: #2B2D42 3px solid;
+  color: #003049;
+  border: #003049 3px solid;
 }
 
 .button::before{

@@ -1,10 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios"
 import styles from "./FormPage.module.css"
 import { Link } from "react-router-dom";
-import style from "../generalStyles/general.module.css"
 import validation from "../../validation";
 import { useDispatch, useSelector } from "react-redux";
 import { getTeams } from "../../redux/actions";
@@ -39,16 +37,13 @@ setTeams(allTeams)
 const handleTeamChange = (event) => {
   const { value } = event.target;
   if (selectedTeams.includes(value)) {
-    // Desmarca un equipo si ya está seleccionado
     setSelectedTeams(selectedTeams.filter((team) => team !== value));
   } else {
-    // Marca un equipo si no está seleccionado
     setSelectedTeams([...selectedTeams, value]);
   }
 };
     const selectedTeamIds = [];
     teams.forEach((team) => {
-      // Si el nombre del equipo está en la lista de equipos seleccionados, agrega su ID
       if (selectedTeams.includes(team.name)) {
         selectedTeamIds.push(team.id);
       }
@@ -103,7 +98,7 @@ const handleSubmit = async (e) => {
 return (
   <div className={styles.container}>
    <Link to={`/home`}>
-    <button className={`${style.button} ${styles.button} `} >Back</button>
+    <button className={`${styles.btn} ${styles.back}`} >Back</button>
     </Link>
     <div className={styles.create}>
     <div>
