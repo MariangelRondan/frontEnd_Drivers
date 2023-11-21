@@ -1,0 +1,26 @@
+ .container{
+    /* background-color: transparent;
+    backdrop-filter: blur(12px); */
+    height: 400px; 
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(12px); 
+    align-items: center;
+    margin-top: 9%;
+    border-radius: 700px;
+    border: 2px solid #ef233c;
+} 
+
+
+
+.text{
+    height:9%;
+    width: 30%;
+    color: #edf2f4
+}
+
+.image img{
+    width: 60%;
+}

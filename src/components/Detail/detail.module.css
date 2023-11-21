@@ -24,6 +24,7 @@ margin: 2%;
     margin-top: 2%;
 width: 800px; 
 padding-left: 1%;
+
   }
 
   .card h1 {
@@ -33,7 +34,7 @@ padding-left: 1%;
 
 .card p {
     font-family: 'Montserrat', sans-serif; 
-   
+    font-weight: 700;
   }
   
 
