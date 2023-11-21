@@ -10,31 +10,9 @@
 }
 
 
-/* Estilos para tablet (768px ancho o más) */
-@media only screen and (max-width: 768px) {
-.container {
-  width: 100%;
-  height: 100%;
-  --color: #57534c00;
-  background-color: rgba(245, 245, 245, 0);
-  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-      background-size: 5% 5%;
-justify-content: center;
-    }
-}
 
-/* Estilos para celular (480px ancho o más) */
-@media only screen and (max-width: 480px) {
-.container {
-  width: 100%;
-  height: 100%;
-  --color: #57534c00;
-  background-color: rgba(245, 245, 245, 0);  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-      background-size: 5% 5%;
-}
-}
+
+
 
 
 @-webkit-keyframes honeycomb {
@@ -164,7 +142,10 @@ justify-content: center;
   .imageAndDescription {
     display: flex; /* Usa Flexbox */
     align-items: center; /* Centra verticalmente los elementos */
- 
+ justify-content: center;
+ margin-top: 5%;
+ font-size: 1.15em;
+
 }
 
   .imageAndDescription img{
@@ -173,7 +154,6 @@ height: 500px;
     border-radius: 50px;
 margin: 80px;
 
-;
 }
 
 .card {
