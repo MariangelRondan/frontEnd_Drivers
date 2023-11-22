@@ -132,13 +132,13 @@
 /* selectt */
 
 .selectContainer{
-  display: flex; /* Usa flexbox para alinear elementos horizontalmente */
-  align-items: center; /* Alinea verticalmente los elementos en el centro */
+  display: flex; 
+  align-items: center; 
   gap: 10px; 
-  margin-top: 30px;
   border-bottom: #EDF2F4 solid 3px;
   border-top: #EDF2F4 solid 3px;
 }
+
 .select{
   display: flex;
   align-items: center;
@@ -162,10 +162,6 @@ margin-bottom: 8px;
     cursor: pointer;
   }
 
-  
-
-
-  
 
 .button{
   width: auto;
@@ -185,7 +181,6 @@ margin-bottom: 8px;
  cursor: pointer;
  margin-left: 10px;
  font-family: 'Montserrat', sans-serif;
-
 }
 
 .button:hover{
@@ -226,24 +221,5 @@ margin-top: 30px;
 }
 
 
-.errorDiv{
-  border: 3px solid #2B2D42;
-  border-radius: 12px;
-margin-left: 30%;
-margin-top: 5%;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-color: #212333;
-width: 40%;
-}
-.errorDiv img{
-  width: 50%;
-  display: flex;
-}
 
-.errorDiv button{
-  margin-bottom: 5%;
-}
 

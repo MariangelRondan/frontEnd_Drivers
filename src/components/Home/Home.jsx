@@ -12,6 +12,7 @@ const Home = () => {
     const allTeams = useSelector((state) => state.allTeams)
     const [isLoading, setIsLoading] = useState(true);
 const [currentPage, setCurrentPage] = useState(1)
+
 const itemsPerPage = 9;
 const[teams, setTeams] = useState([])
 const [filterName, setFilterName] = useState("")
