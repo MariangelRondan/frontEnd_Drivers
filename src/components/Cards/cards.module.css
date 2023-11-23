@@ -91,14 +91,16 @@ margin-right: 10%;
  /* input Styles */
  .inputWrapper {
     position: relative;
-    width: 35px;
+    width: 45px;
     margin: 0 10px;
     display: flex; 
     align-items: center; 
+   
   }
   
   .inputBox {
     padding: 7px;
+    
     border: none;
     border-radius: 16px;
     border-bottom: 2px solid #003049;
@@ -107,6 +109,7 @@ margin-right: 10%;
     width: 100%;
     background-color: #EDF2F4;
     transition: border-color 0.3s ease-in-out;
+    
   }
   
   .inputBox:focus {

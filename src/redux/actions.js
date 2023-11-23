@@ -29,7 +29,6 @@ export const getDrivers = () => {
 };
 
 export const getDriverByName = (name) => {
-  // const endpoint = `http://localhost:3001/drivers?name=${name}`;
   const endpoint = `${URL}/drivers?name=${name}`;
   return async (dispatch) => {
     try {
@@ -47,7 +46,6 @@ export const getDriverByName = (name) => {
 export const getDriverByID = (id) => {
   return async (dispatch) => {
     try {
-      // const endpoint = `http://localhost:3001/drivers/${id}`;
       const endpoint = `${URL}/drivers/${id}`;
 
       const response = await axios.get(endpoint);

@@ -63,18 +63,25 @@ const handleOrder = (e) => {
   const filterTeams = (e) => {
     dispatch(filterByTeam(e.target.value))
     setCurrentPage(1);
-
+    setFilterDob("")
+    setFilterTeam("")
   }
 
     //Busqueda por nombre
     const onSearch =  (name) => {
     dispatch(getDriverByName(name))
-     
+    setFilterName("")
+    setFilterTeam("")
+    setFilterDob("")
+    setOriginOption("")
       };
 
       // limpia filtros
       const handleClean=()=>{
         dispatch(clearFilters())
+        setFilterName("")
+        setFilterTeam("")
+        setFilterDob("")
         setCurrentPage(1);       
       }
 
