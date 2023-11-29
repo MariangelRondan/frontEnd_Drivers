@@ -22,12 +22,16 @@ const [originOption, setOriginOption] = useState("")
 
 
 useEffect(() => {
-  dispatch(getDrivers())
-  dispatch(getTeams())
+  const fetchData = () => {
+    dispatch(getTeams());
+     dispatch(getDrivers());
+   
+  };
+  fetchData();
 }, []);
 
+
 useEffect(() => {
-      setTeams(allTeams)
       setIsLoading(false)
       }, [allTeams]);
 
@@ -128,7 +132,7 @@ const handleOrder = (e) => {
 
 <select  className={styles.select}  onChange={filterTeams} value={filterTeam}  >
   <option value="" disabled>Select Team</option>
-  {teams.map((team) => (
+  {allTeams.map((team) => (
               <option key={team.id} value={team.name}>
                 {team.name}
               </option>
@@ -139,8 +143,8 @@ const handleOrder = (e) => {
 </div >
       <Cards  currentPage={currentPage}
             itemsPerPage={itemsPerPage}   
-             handlePageChange={handlePageChange} 
-              setCurrentPage={setCurrentPage}/>
+            handlePageChange={handlePageChange} 
+            setCurrentPage={setCurrentPage}/>
           </div> )
     }
    
