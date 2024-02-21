@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import validation from "../../validation";
 import { useDispatch, useSelector } from "react-redux";
 import { getTeams } from "../../redux/actions";
+const URL = import.meta.env.VITE_BACK_URL;
+
 
 export default function FormPage(){
 const[teams, setTeams] = useState([])
@@ -59,7 +61,7 @@ const handleSubmit = async (e) => {
   const validationErrors = validation(formData);
   setErrors(validationErrors);
   try {
-    const response = await fetch('http://localhost:3001/drivers', {
+    const response = await fetch(URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
