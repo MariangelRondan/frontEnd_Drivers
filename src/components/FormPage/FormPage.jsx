@@ -61,7 +61,7 @@ const handleSubmit = async (e) => {
   const validationErrors = validation(formData);
   setErrors(validationErrors);
   try {
-    const response = await fetch(URL, {
+    const response = await fetch(`${URL}/drivers`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
